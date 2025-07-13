@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Many Tokens Do 3D Point Cloud Transformer Architectures Really Need?</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">How Many Tokens Do 3D Point Cloud Transformer Architectures Really Need?</h1>
+            
+            <div class="authors">
+                Tuan Anh Tran<sup>1</sup> Duy Minh Ho Nguyen<sup>2 1 3</sup> Hoai-Chau Tran<sup>4</sup> Michael Barz<sup>1</sup> Khoa D. Doan<sup>4</sup><br>
+                Roger Wattenhofer<sup>5</sup> Vien Anh Ngo<sup>6</sup> Mathias Niepert<sup>2 3</sup> Daniel Sonntag<sup>1 7</sup> Paul Swoboda<sup>8</sup>
+            </div>
+            
+            <div class="affiliations">
+                <sup>1</sup>German Research Centre for Artificial Intelligence (DFKI)
+                <br>
+                <sup>2</sup>Max Planck Research School for Intelligent Systems (IMPRS-IS)
+                <br>
+                <sup>3</sup>University of Stuttgart <sup>4</sup>College of Engineering and Computer Science, VinUniversity <sup>5</sup>ETH Zurich <sup>6</sup>VinRobotics, Hanoi, Vietnam
+                <br>
+                <sup>7</sup>University of Oldenburg <sup>8</sup>Heinrich Heine University Düsseldorf<br>
+                Correspondence to: Tuan Anh Tran &lt;tuan.tran@dfki.de&gt;, Paul Swoboda &lt;paul.swoboda@hhu.de&gt;.
+            </div>
+            
+            <!-- <div class="venues">
+                Conference/Journal Name 2024
+            </div> -->
+            
+            <div class="links">
+                <a href="gitmerge3d.pdf" class="btn">📄 Paper</a>
+                <a href="#" class="btn">📊 arXiv</a>
+                <a href="#" class="btn">💻 Code</a>
+                <a href="#" class="btn">🎥 Video</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section teaser">
+                <div class="teaser-container">
+                    <img src="assets/teaser-results.png" alt="Performance and computational efficiency comparison" class="teaser-image" />
+                    <div class="teaser-labels">
+                        <p class="teaser-caption left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    Minimal Performance Loss</p>
+                        <p class="teaser-caption right">Higher Computational Efficiency&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Abstract</h2>
+                <div class="abstract">
+                    3D point cloud transformers face significant computational challenges due to the quadratic complexity of self-attention mechanisms and the large number of tokens required to represent dense point clouds. We present GitMerge3D, a novel token merging strategy specifically designed for 3D point cloud transformers that dynamically reduces token count while preserving critical geometric information.
+                    <br><br>
+                    Our method introduces a geometry-aware token merging algorithm that identifies and combines redundant spatial tokens based on local geometric similarity and attention patterns. This approach maintains the expressive power of the transformer while dramatically reducing computational overhead and memory requirements for 3D point cloud processing.
+                </div>
+                
+                <div class="contributions">
+                    <h3>Key Contributions</h3>
+                    <ul>
+                        <li>A geometry-aware token merging strategy for 3D point cloud transformers</li>
+                        <li>Dynamic token reduction algorithm based on globally informed graph</li>
+                        <li>Significant computational efficiency gains while preserving geometric fidelity</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Method Overview</h2>
+                <div class="method-content">
+                    <div class="method-diagram">
+                        <img src="assets/architecture.png" alt="GitMerge3D methodology diagram showing token merging pipeline" />
+                        <p class="image-caption"><strong>b)</strong> For each Point Transformer layer, we compute global-informed energy scores, which are later used to calculate patch-level energy scores. <strong>a)</strong> These patch-level scores guide adaptive merging, retaining more information for high-energy patches. <strong>c)</strong> Each patch is divided into evenly sized bins, and destination tokens are randomly selected within these bins to enable spatially aware merging.</p>
+                    </div>
+                    
+                    <div class="method-description">
+                        <h3>Insights</h3>
+                        <p>
+                            3D point cloud tokens are highly redundant!
+                        </p>
+                        
+                        <div class="insights-visualization">
+                            <div class="insights-image">
+                                <img src="assets/insights-visualization.png" alt="Visualization showing 3D point cloud redundancy comparison between original and merged predictions" />
+                            </div>
+                            <div class="insights-caption">
+                                <p class="image-caption"><strong>Observation</strong>: After merging 90% of the tokens in each attention layer, the change in principal component analysis (PCA) visualization of feature representation (2nd image, 2nd row) is minimal compared to the original feature (2nd image, 1st row). Most of the predictions remain unchanged after merging, with <span style="color: red;">red</span> indicating the areas where predictions differ (3rd image, 2nd row). This leads us to conclude that there is high redundancy in the point cloud processing model.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section results">
+                <div class="results-content">
+                    <h2>Results</h2>
+                    
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <img src="assets/computational-efficiency.png" alt="Computational efficiency comparison" />
+                            <h3>Computational Efficiency</h3>
+                            <p>GitMerge3D achieves up to 21% in computational cost while maintaining with minimal change in accuracy on point cloud tasks.</p>
+                        </div>
+                        
+                        <div class="result-item">
+                            <img src="assets/memory-saving.png" alt="Memory usage reduction" />
+                            <h3>Memory Optimization</h3>
+                            <p>Our token merging strategy reduces peak memory usage significantly during inference, enabling processing of larger point clouds on resource-constrained devices.</p>
+                        </div>
+                        
+                        <div class="result-item">
+                            <img src="assets/feature-preservation.png" alt="Geometric feature preservation visualization" />
+                            <h3>Feature Preservation</h3>
+                            <p>GitMerge3D maintains critical geometric features even with aggressive token reduction.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="segmentation-results">
+                        <img src="assets/segmentation-results.png" alt="ScanNet segmentation results comparison" class="full-width-image" />
+                        <p class="image-caption">Illustration of ScanNet segmentation results with and without our merging method. As shown in the fourth column, the differences - highlighted in red - are limited to only a few points among hundreds of thousands.</p>
+                    </div>
+                    
+                    <div class="segmentation-results">
+                        <img src="assets/reconstruction-results.png" alt="3D object reconstruction comparison" class="full-width-image" />
+                        <p class="image-caption">We visualize the output of various token compression techniques after removing 80% of the tokens, comparing their visual quality degradation (or preservation) on the 3D object reconstruction task</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section acknowledgement">
+                <h2>Acknowledgement</h2>
+                <div class="acknowledgement-content">
+                    <p>This work was supported by Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under Germany's Excellence Strategy - EXC 2075 – 390740016, the DARPA ANSR program under award FA8750-23-2-0004, the DARPA CODORD program under award HR00112590089. The authors thank the International Max Planck Research School for Intelligent Systems (IMPRS-IS) for supporting Duy M. H. Nguyen. Tuan Anh Tran, Duy M. H. Nguyen, Michael Barz and Daniel Sonntag are also supported by the No-IDLE project (BMBF, 01IW23002), the MASTER project (EU, 101093079), and the Endowed Chair of Applied Artificial Intelligence, Oldenburg University.</p>
+                </div>
+            </div>
+
+            <div class="section citation">
+                <h2>Citation</h2>
+                <div class="bibtex">
+                    <pre>@article{gitmerge3d2024,
+    title={How Many Tokens Do 3D Point Cloud Transformer Architectures Really Need?},
+    author={Tuan Anh Tran and Duy Minh Ho Nguyen and Hoai-Chau Tran and Michael Barz and Khoa D. Doan and Roger Wattenhofer and Vien Anh Ngo and Mathias Niepert and Daniel Sonntag and Paul Swoboda},
+    journal={Conference/Journal Name},
+    year={2024},
+    volume={XX},
+    pages={XXX-XXX}
+}</pre>
+                </div>
+                <button class="copy-btn" onclick="copyBibtex()">Copy Citation</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyBibtex() {
+            const bibtexText = document.querySelector('.bibtex pre').textContent;
+            navigator.clipboard.writeText(bibtexText).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
