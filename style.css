@@ -10,6 +10,7 @@ body {
     color: #333;
     background: white;
     min-height: 100vh;
+    font-size: 110%;
 }
 
 .container {
@@ -48,20 +49,21 @@ body {
 .title {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    font-weight: 300;
+    font-weight: 700;
     position: relative;
     z-index: 1;
+    line-height: 1.3;
 }
 
 .conference {
-    font-size: 1.2rem;
+    font-size: 1.32rem;
     color: #3498db;
     font-weight: 600;
     margin-bottom: 25px;
 }
 
 .subtitle {
-    font-size: 1.1rem;
+    font-size: 1.21rem;
     margin-bottom: 30px;
     opacity: 0.9;
     position: relative;
@@ -97,7 +99,7 @@ body {
 }
 
 .affiliations {
-    font-size: 0.9rem;
+    font-size: 0.99rem;
     opacity: 0.9;
     position: relative;
     z-index: 1;
@@ -123,19 +125,27 @@ body {
 }
 
 .btn {
-    background: linear-gradient(45deg, #3498db, #2980b9);
+    background: #363636;
     color: white;
-    padding: 15px 30px;
+    padding: 12px 24px;
     text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
+    border-radius: 290486px;
+    font-weight: 400;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    box-shadow: none;
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
+    background: #292929;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .content {
@@ -149,7 +159,7 @@ body {
 }
 
 .section h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 30px;
     color: #2c3e50;
     border-bottom: 3px solid #3498db;
@@ -182,7 +192,7 @@ body {
 }
 
 .teaser-caption {
-    font-size: 1.2rem;
+    font-size: 1.32rem;
     font-weight: 600;
     color: #2c3e50;
     margin: 0;
@@ -214,14 +224,14 @@ body {
 .image-caption {
     font-style: italic;
     color: #666;
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-align: center;
     margin-top: 15px;
 }
 
 /* Abstract section */
 .abstract {
-    font-size: 1.1rem;
+    font-size: 1.21rem;
     text-align: justify;
     background: #f8f9fa;
     padding: 30px;
@@ -240,7 +250,7 @@ body {
 .contributions h3 {
     color: #2c3e50;
     margin-bottom: 20px;
-    font-size: 1.3rem;
+    font-size: 1.43rem;
 }
 
 .contributions ul {
@@ -296,7 +306,7 @@ body {
     color: #2c3e50;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.43rem;
 }
 
 .method-description h3:first-child {
@@ -304,7 +314,7 @@ body {
 }
 
 .method-description p {
-    font-size: 1.1rem;
+    font-size: 1.21rem;
     margin-bottom: 1.5rem;
     text-align: justify;
 }
@@ -335,7 +345,7 @@ body {
 .insights-caption .image-caption {
     text-align: left;
     margin-top: 0;
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.6;
 }
 
@@ -384,7 +394,7 @@ body {
 .result-item h3 {
     color: #3498db;
     margin-bottom: 15px;
-    font-size: 1.3rem;
+    font-size: 1.43rem;
 }
 
 .result-item img {
@@ -404,11 +414,11 @@ body {
 .qualitative-results h3 {
     color: #2c3e50;
     margin-bottom: 2rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .qualitative-results p {
-    font-size: 1.1rem;
+    font-size: 1.21rem;
     text-align: justify;
 }
 
@@ -441,14 +451,14 @@ body {
 }
 
 .highlight-box h3 {
-    font-size: 1.8rem;
+    font-size: 1.98rem;
     margin-bottom: 15px;
     position: relative;
     z-index: 1;
 }
 
 .highlight-box p {
-    font-size: 1.1rem;
+    font-size: 1.21rem;
     position: relative;
     z-index: 1;
 }
@@ -473,7 +483,7 @@ body {
 }
 
 .acknowledgement-content p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-align: justify;
     line-height: 1.6;
     margin: 0;
@@ -509,7 +519,7 @@ body {
 .bibtex pre {
     margin: 0;
     font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
+    font-size: 0.99rem;
     line-height: 1.5;
 }
 
@@ -519,7 +529,7 @@ body {
     border: none;
     padding: 15px 30px;
     border-radius: 50px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
