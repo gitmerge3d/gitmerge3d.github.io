@@ -11,16 +11,16 @@
     <div class="container">
         <div class="header">
             <h1 class="title">How Many Tokens Do 3D Point Cloud Transformer Architectures Really Need?</h1>
-            
+
+            <div class="conference">NeurIPS 2025</div>
+
             <div class="authors">
-                Tuan Anh Tran<sup>1</sup> Duy Minh Ho Nguyen<sup>2 1 3</sup> Hoai-Chau Tran<sup>4</sup> Michael Barz<sup>1</sup> Khoa D. Doan<sup>4</sup><br>
-                Roger Wattenhofer<sup>5</sup> Vien Anh Ngo<sup>6</sup> Mathias Niepert<sup>2 3</sup> Daniel Sonntag<sup>1 7</sup> Paul Swoboda<sup>8</sup>
+                <a href="https://scholar.google.com/citations?user=5-0hLggAAAAJ&hl=en">Tuan Anh Tran</a><sup>1</sup> <a href="https://duyhominhnguyen.github.io/">Duy Minh Ho Nguyen</a><sup>2 1 3</sup> <a href="https://scholar.google.com/citations?user=FZH2vcEAAAAJ&hl=en">Hoai-Chau Tran</a><sup>4</sup> <a href="#">Michael Barz</a><sup>1</sup> <a href="#">Khoa D. Doan</a><sup>4</sup><br>
+                <a href="#">Roger Wattenhofer</a><sup>5</sup> <a href="https://vienngo.github.io/">Vien Anh Ngo</a><sup>6</sup> <a href="https://www.matlog.net/">Mathias Niepert</a><sup>2 3</sup> <a href="https://www.dfki.de/~daso02/">Daniel Sonntag</a><sup>1 7</sup> <a href="https://www.sarmata.hhu.de/">Paul Swoboda</a><sup>8</sup>
             </div>
             
             <div class="affiliations">
-                <sup>1</sup>German Research Centre for Artificial Intelligence (DFKI)
-                <br>
-                <sup>2</sup>Max Planck Research School for Intelligent Systems (IMPRS-IS)
+                <sup>1</sup>German Research Centre for Artificial Intelligence (DFKI), <sup>2</sup>Max Planck Research School for Intelligent Systems (IMPRS-IS)
                 <br>
                 <sup>3</sup>University of Stuttgart <sup>4</sup>College of Engineering and Computer Science, VinUniversity <sup>5</sup>ETH Zurich <sup>6</sup>VinRobotics, Hanoi, Vietnam
                 <br>
@@ -43,7 +43,7 @@
         <div class="content">
             <div class="section teaser">
                 <div class="teaser-container">
-                    <img src="assets/teaser-results.png" alt="Performance and computational efficiency comparison" class="teaser-image" />
+                    <img src="assets/Teaser_Figure.png" alt="Performance and computational efficiency comparison" class="teaser-image" />
                     <div class="teaser-labels">
                         <p class="teaser-caption left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -59,9 +59,7 @@
             <div class="section">
                 <h2>Abstract</h2>
                 <div class="abstract">
-                    3D point cloud transformers face significant computational challenges due to the quadratic complexity of self-attention mechanisms and the large number of tokens required to represent dense point clouds. We present GitMerge3D, a novel token merging strategy specifically designed for 3D point cloud transformers that dynamically reduces token count while preserving critical geometric information.
-                    <br><br>
-                    Our method introduces a geometry-aware token merging algorithm that identifies and combines redundant spatial tokens based on local geometric similarity and attention patterns. This approach maintains the expressive power of the transformer while dramatically reducing computational overhead and memory requirements for 3D point cloud processing.
+                    Recent advances in 3D point cloud transformers have led to state-of-the-art results in tasks such as semantic segmentation and reconstruction. However, these models typically rely on dense token representations, incurring high computational and memory costs during training and inference. In this work, we present the finding that tokens are remarkably redundant, leading to substantial inefficiency. We introduce an efficient token merging method and illustrate that it can reduce the token count by up to 90–95\% while maintaining competitive performance. This finding challenges the prevailing assumption that more tokens inherently yield better performance and highlights that many current models are over-tokenized and under-optimized for scalability. We validate our method across multiple 3D vision tasks and show consistent improvements in computational efficiency. This work is the first to assess redundancy in large-scale 3D transformer models, providing insights into the development of more efficient 3D foundation architectures.
                 </div>
                 
                 <div class="contributions">
@@ -146,13 +144,11 @@
             <div class="section citation">
                 <h2>Citation</h2>
                 <div class="bibtex">
-                    <pre>@article{gitmerge3d2024,
+                    <pre>@inproceedings{gitmerge3d2025,
     title={How Many Tokens Do 3D Point Cloud Transformer Architectures Really Need?},
     author={Tuan Anh Tran and Duy Minh Ho Nguyen and Hoai-Chau Tran and Michael Barz and Khoa D. Doan and Roger Wattenhofer and Vien Anh Ngo and Mathias Niepert and Daniel Sonntag and Paul Swoboda},
-    journal={Conference/Journal Name},
-    year={2024},
-    volume={XX},
-    pages={XXX-XXX}
+    booktitle={Advances in Neural Information Processing Systems},
+    year={2025}
 }</pre>
                 </div>
                 <button class="copy-btn" onclick="copyBibtex()">Copy Citation</button>
