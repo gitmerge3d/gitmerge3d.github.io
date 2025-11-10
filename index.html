@@ -31,12 +31,11 @@
                 <div class="logos-row">
                     <img src="assets/dfki_logo.png" alt="DFKI" />
                     <img src="assets/university-of-stuttgart-logo.png" alt="University of Stuttgart" class="stuttgart-logo" />
-                    <img src="assets/mpi_logo.jpg" alt="Max Planck Institute" />
                     <img src="assets/eth-zurich_logo.jpg" alt="ETH Zurich" class="eth-logo" />
-                    <img src="assets/vinuniversity_logo.png" alt="VinUniversity" />
+                    <img src="assets/vinuniversity_logo.jpg" alt="VinUniversity" class="vinuni-logo" />
                 </div>
                 <div class="logos-row">
-                    <img src="assets/imprs-is-logo.jpg" alt="IMPRS-IS" />
+                    <img src="assets/mpi_imprs_is.png" alt="Max Planck Institute & IMPRS-IS" />
                     <img src="assets/hhu_logo.png" alt="Heinrich Heine University" class="hhu-logo" />
                     <img src="assets/logo_vinrobotics.png" alt="VinRobotics" />
                 </div>
@@ -101,11 +100,81 @@
                         </p>
 
                         <div class="insights-visualization">
-                            <div class="insights-image">
-                                <img src="assets/insights-visualization.png" alt="Visualization showing 3D point cloud redundancy comparison between original and merged predictions" />
+                            <div class="insights-carousel">
+                                <button class="carousel-arrow left-arrow" onclick="changeScene(-1)">&#10094;</button>
+
+                                <div class="carousel-content">
+                                    <!-- Scene 1: scene0423_00 -->
+                                    <div class="scene-slide active" data-scene="scene0423_00">
+                                        <div class="insights-grid">
+                                            <div class="insight-item">
+                                                <img src="assets/scene0423_00_r0.05_frame0001/scene0423_00_r0.05_input.png" alt="Input point cloud" />
+                                                <p class="insight-label">Input</p>
+                                            </div>
+                                            <div class="insight-item">
+                                                <img src="assets/scene0423_00_r0.05_frame0001/scene0423_00_r0.05_21_attention.png" alt="Attention before merge" />
+                                                <p class="insight-label">Feat. PCA (0% merge)</p>
+                                            </div>
+                                            <div class="insight-item">
+                                                <img src="assets/scene0423_00_r0.90_frame0001/scene0423_00_r0.90_21_attention.png" alt="Attention after merge" />
+                                                <p class="insight-label">Feat. PCA (90% merge)</p>
+                                            </div>
+                                            <div class="insight-item">
+                                                <img src="assets/scene0423_00_r0.90_frame0001/scene0423_00_r0.90_21_energy_original.png" alt="Energy after merge" />
+                                                <p class="insight-label">Energy (90% merge)</p>
+                                            </div>
+                                            <div class="insight-item">
+                                                <img src="assets/scene0423_00_r0.90_frame0001/scene0423_00_r0.90_pred.png" alt="Prediction after merge" />
+                                                <p class="insight-label">Prediction (90% merge)</p>
+                                            </div>
+                                            <div class="insight-item">
+                                                <img src="assets/scene0423_00_r0.90_frame0001/scene0423_00_r0.90_difference.png" alt="Difference after merge" />
+                                                <p class="insight-label">Difference (90% merge)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Scene 2: scene0575_00 -->
+                                    <div class="scene-slide" data-scene="scene0575_00">
+                                        <div class="insights-grid">
+                                            <div class="insight-item">
+                                                <img src="assets/scene0575_00_r0.05_frame0001/scene0575_00_r0.05_input.png" alt="Input point cloud" />
+                                                <p class="insight-label">Input</p>
+                                            </div>
+                                            <div class="insight-item">
+                                                <img src="assets/scene0575_00_r0.05_frame0001/scene0575_00_r0.05_21_attention.png" alt="Attention before merge" />
+                                                <p class="insight-label">Feat. PCA (0% merge)</p>
+                                            </div>
+                                            <div class="insight-item">
+                                                <img src="assets/scene0575_00_r0.90_frame0001/scene0575_00_r0.90_21_attention.png" alt="Attention after merge" />
+                                                <p class="insight-label">Feat. PCA (90% merge)</p>
+                                            </div>
+                                            <div class="insight-item">
+                                                <img src="assets/scene0575_00_r0.90_frame0001/scene0575_00_r0.90_21_energy_original.png" alt="Energy after merge" />
+                                                <p class="insight-label">Energy (90% merge)</p>
+                                            </div>
+                                            <div class="insight-item">
+                                                <img src="assets/scene0575_00_r0.90_frame0001/scene0575_00_r0.90_pred.png" alt="Prediction after merge" />
+                                                <p class="insight-label">Prediction (90% merge)</p>
+                                            </div>
+                                            <div class="insight-item">
+                                                <img src="assets/scene0575_00_r0.90_frame0001/scene0575_00_r0.90_difference.png" alt="Difference after merge" />
+                                                <p class="insight-label">Difference (90% merge)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="carousel-arrow right-arrow" onclick="changeScene(1)">&#10095;</button>
                             </div>
+
+                            <div class="scene-indicator">
+                                <span class="dot active" onclick="goToScene(0)"></span>
+                                <span class="dot" onclick="goToScene(1)"></span>
+                            </div>
+
                             <div class="insights-caption">
-                                <p class="image-caption"><strong>Observation</strong>: After merging 90% of the tokens in each attention layer, the change in principal component analysis (PCA) visualization of feature representation (2nd image, 2nd row) is minimal compared to the original feature (2nd image, 1st row). Most of the predictions remain unchanged after merging, with <span style="color: red;">red</span> indicating the areas where predictions differ (3rd image, 2nd row). This leads us to conclude that there is high redundancy in the point cloud processing model.</p>
+                                <p class="image-caption"><strong>Observation</strong>: After merging 90% of the tokens in each attention layer, the attention visualization and predictions remain nearly identical to the original (5% merge baseline). The difference map (rightmost) shows minimal changes in <span style="color: red;">red</span>, demonstrating that there is high redundancy in the point cloud processing model.</p>
                             </div>
                         </div>
 
@@ -161,6 +230,17 @@
                 </div>
             </div>
 
+            <div class="section video-section">
+                <h2>Video Presentation</h2>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/N_CRjhiIjrA"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
             <div class="section acknowledgement">
                 <h2>Acknowledgement</h2>
                 <div class="acknowledgement-content">
@@ -194,6 +274,40 @@
                     btn.textContent = originalText;
                 }, 2000);
             });
+        }
+
+        // Carousel functionality for scene switching
+        let currentScene = 0;
+        const slides = document.querySelectorAll('.scene-slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showScene(n) {
+            if (n >= slides.length) { currentScene = 0; }
+            if (n < 0) { currentScene = slides.length - 1; }
+
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            // Remove active class from all dots
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+
+            // Show current slide and activate corresponding dot
+            slides[currentScene].classList.add('active');
+            dots[currentScene].classList.add('active');
+        }
+
+        function changeScene(direction) {
+            currentScene += direction;
+            showScene(currentScene);
+        }
+
+        function goToScene(n) {
+            currentScene = n;
+            showScene(currentScene);
         }
     </script>
 </body>
