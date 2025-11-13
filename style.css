@@ -154,6 +154,10 @@ body {
     height: 45.9px;
 }
 
+.logos-row:last-child img.mpi-logo {
+    height: 67.5px;
+}
+
 .institution-logos img {
     width: auto;
     max-width: 200px;
@@ -936,6 +940,10 @@ body {
 
     .logos-row:last-child img.hhu-logo {
         height: 38.25px;
+    }
+
+    .logos-row:last-child img.mpi-logo {
+        height: 56.25px;
     }
 
     .btn {
