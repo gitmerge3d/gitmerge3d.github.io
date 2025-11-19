@@ -144,7 +144,8 @@ body {
 }
 
 .logos-row:first-child img.vinuni-logo {
-    height: 65.00px;
+    height: 48.3px;
+    max-width: none;
 }
 
 .logos-row:last-child img {
@@ -157,6 +158,11 @@ body {
 
 .logos-row:last-child img.mpi-logo {
     height: 72px;
+    max-width: none;
+}
+
+.logos-row:last-child img.vinrobo-logo {
+    height: 39px;
     max-width: none;
 }
 
@@ -219,7 +225,7 @@ body {
 .content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 60px 40px;
+    padding: 20px 40px 60px 40px;
 }
 
 .section {
@@ -834,7 +840,7 @@ body {
     }
     
     .content {
-        padding: 40px 20px;
+        padding: 10px 15px 40px 20px;
     }
     
     .results .results-content {
@@ -934,7 +940,8 @@ body {
     }
 
     .logos-row:first-child img.vinuni-logo {
-        height: 63.00px;
+        height: 40.25px;
+        max-width: none;
     }
 
     .logos-row:last-child img {
@@ -947,6 +954,11 @@ body {
 
     .logos-row:last-child img.mpi-logo {
         height: 57px;
+        max-width: none;
+    }
+
+    .logos-row:last-child img.vinrobo-logo {
+        height: 36px;
         max-width: none;
     }
 
