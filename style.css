@@ -135,7 +135,8 @@ body {
 }
 
 .logos-row:first-child img.stuttgart-logo {
-    height: 75.9px;
+    height: 95px;
+    max-width: none;
 }
 
 .logos-row:first-child img.eth-logo {
@@ -147,7 +148,7 @@ body {
 }
 
 .logos-row:last-child img {
-    height: 54px;
+    height: 65px;
 }
 
 .logos-row:last-child img.hhu-logo {
@@ -155,7 +156,8 @@ body {
 }
 
 .logos-row:last-child img.mpi-logo {
-    height: 67.5px;
+    height: 70px;
+    max-width: none;
 }
 
 .institution-logos img {
@@ -911,7 +913,7 @@ body {
     }
 
     .institution-logos {
-        gap: 15px;
+        gap: 12px;
     }
 
     .logos-row {
@@ -923,7 +925,8 @@ body {
     }
 
     .logos-row:first-child img.stuttgart-logo {
-        height: 63.25px;
+        height: 80px;
+        max-width: none;
     }
 
     .logos-row:first-child img.eth-logo {
@@ -935,7 +938,7 @@ body {
     }
 
     .logos-row:last-child img {
-        height: 45px;
+        height: 60px;
     }
 
     .logos-row:last-child img.hhu-logo {
@@ -943,7 +946,8 @@ body {
     }
 
     .logos-row:last-child img.mpi-logo {
-        height: 56.25px;
+        height: 65px;
+        max-width: none;
     }
 
     .btn {
